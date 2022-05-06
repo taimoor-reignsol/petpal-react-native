@@ -7,15 +7,12 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { COLORS, FONTS, IMAGES, SIZES, STYLES } from "../../constants";
+import { COLORS, FONTS, IMAGES, SCREENS, SIZES, STYLES } from "../../constants";
 
 import Row from "../../components/Row";
 import EditText from "../../components/EditText";
 import { ButtonRadius } from "./../../components/ButtonRadius";
-import { ForgetPassword } from "./ForgetPassword";
 
 export const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -91,7 +88,7 @@ export const Login = ({ navigation }) => {
         <TouchableOpacity
           style={{ alignItems: "center" }}
           onPress={() => {
-            navigation.navigate("ForgetPassword");
+            navigation.navigate(SCREENS.ForgetPassword);
           }}
         >
           <Text
@@ -106,7 +103,13 @@ export const Login = ({ navigation }) => {
             Forget Password
           </Text>
         </TouchableOpacity>
-        <ButtonRadius Color={COLORS.brownGrey} label={"FaceID"} />
+        <ButtonRadius
+          Color={COLORS.brownGrey}
+          label={"Login"}
+          onpress={() => {
+            navigation.navigate(SCREENS.Home);
+          }}
+        />
         <ButtonRadius Color={COLORS.red} label={"LOGIN with Google"} />
         <ButtonRadius
           Color={COLORS.facebookBLue}
@@ -124,7 +127,11 @@ export const Login = ({ navigation }) => {
           >
             Don't have any account?
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate(SCREENS.Signup);
+            }}
+          >
             <Text
               style={[
                 FONTS.boldFont16,

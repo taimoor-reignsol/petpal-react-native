@@ -1,14 +1,24 @@
 import React from "react";
+import { AntDesign } from "@expo/vector-icons";
 import { Text, View, TouchableOpacity } from "react-native";
 
-import { COLORS, FONTS, IMAGES, SIZES, STYLES } from "../constants";
+import { COLORS, FONTS, IMAGES, SIZES, STYLES, dark, icon } from "../constants";
+import Row from "./Row";
+import { useLinkProps } from "@react-navigation/native";
 
-export const ButtonRadius = ({ Color, label, styleText, style }) => {
+export const ButtonRadius = ({
+  Color,
+  label,
+  styleText,
+  style,
+  onpress,
+  arrow,
+}) => {
   return (
     <View>
       <TouchableOpacity
+        onPress={onpress}
         style={[
-          style,
           {
             marginVertical: SIZES.five,
             backgroundColor: Color,
@@ -17,21 +27,45 @@ export const ButtonRadius = ({ Color, label, styleText, style }) => {
             alignItems: "center",
             justifyContent: "center",
           },
+          style,
         ]}
       >
-        <Text
-          style={[
-            FONTS.boldFont20,
-            {
-              color: COLORS.white,
-
-              paddingVertical: SIZES.ten,
-            },
-            styleText,
-          ]}
+        <Row
+          style={{
+            justifyContent: "space-between",
+            paddingHorizontal: 20,
+            alignItems: "center",
+          }}
         >
-          {label}
-        </Text>
+          {icon ? (
+            <AntDesign
+              name={icon}
+              size={24}
+              color={dark ? COLORS.white : COLORS.brownGrey}
+            />
+          ) : null}
+
+          <Text
+            style={[
+              FONTS.boldFont20,
+              {
+                color: COLORS.white,
+
+                paddingVertical: SIZES.ten,
+              },
+              styleText,
+            ]}
+          >
+            {label}
+          </Text>
+          {arrow ? (
+            <AntDesign
+              name="right"
+              size={24}
+              color={dark ? COLORS.white : COLORS.brownGrey}
+            />
+          ) : null}
+        </Row>
       </TouchableOpacity>
     </View>
   );

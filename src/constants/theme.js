@@ -60,6 +60,15 @@ export const IMAGES = {
   headerbackground: require("../assets/HeaderBackground.png"),
   headerbackground2: require("../assets/HeaderBackground2.png"),
   forgetpassword: require("../assets/forgetpassword.png"),
+  SelectHome: require("../assets/SelectHome.png"),
+  UnSelectHome: require("../assets/UnSelectHome.png"),
+  yellocorner: require("../assets/YellowCorner.png"),
+
+  UnSelectNotification: require("../assets/UnSelectNotification.png"),
+
+  UnSelectMore: require("../assets/UnSelectMore.png"),
+  SelectLocation: require("../assets/SelectLocation.png"),
+  UnSelectLocation: require("../assets/UnSelectLocation.png"),
 };
 
 /* * Screens * */
@@ -67,6 +76,11 @@ export const SCREENS = {
   Login: "Login",
   Signup: "Signup",
   ForgetPassword: "ForgetPassword",
+  Home: "Home",
+  Notification: "Notification",
+  More: "More",
+  Location: "Location",
+  TermsAndConition: "TermsAndConition",
 };
 
 export const SIZES = {
