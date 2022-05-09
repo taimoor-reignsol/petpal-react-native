@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef, createRef } from "react";
 import {
   Platform,
   StyleSheet,
   Text,
   View,
   Image,
+  ScrollView,
   TouchableOpacity,
 } from "react-native";
 
@@ -17,136 +18,168 @@ import { ButtonRadius } from "./../../components/ButtonRadius";
 export const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [valid, setValid] = useState(null);
+  const emailRef = createRef();
+  validate = (text) => {
+    console.log(text);
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    if (reg.test(text) === false) {
+      console.log("Email is Not Correct");
+      setEmail(text);
+      setValid(false);
+    } else {
+      setEmail(text);
+      setValid(true);
+    }
+  };
+
   return (
-    <View style={[STYLES.container, { paddingHorizontal: SIZES.twenty }]}>
-      <Row style={{ justifyContent: "space-between" }}>
-        <View style={{ justifyContent: "space-between" }}>
+    <ScrollView contentContainerStyle={{ paddingHorizontal: SIZES.twenty }}>
+      <View
+      // style={[STYLES.container, { paddingHorizontal: SIZES.fifteen }]}
+      >
+        <Row style={{ justifyContent: "space-between" }}>
+          <View style={{ justifyContent: "space-between" }}>
+            <Image
+              source={IMAGES.Logo}
+              style={{
+                width: SIZES.twenty * 5,
+                height: SIZES.twenty * 4,
+                marginTop: SIZES.twenty,
+              }}
+              resizeMode="contain"
+            />
+            <Text
+              style={[
+                FONTS.boldFont20,
+                {
+                  color: COLORS.secondary,
+                  paddingVertical: SIZES.ten,
+                },
+              ]}
+            >
+              LOGIN
+            </Text>
+          </View>
           <Image
-            source={IMAGES.Logo}
-            style={{ width: 100, height: 40, marginTop: 20 }}
+            source={IMAGES.boywithdogs}
+            style={{
+              width: SIZES.twentyFive * 10,
+              height: SIZES.twentyFive * 10,
+            }}
             resizeMode="contain"
+          />
+        </Row>
+
+        <View>
+          <Text
+            style={[
+              FONTS.boldFont16,
+              {
+                color: COLORS.secondary,
+              },
+            ]}
+          >
+            Email
+          </Text>
+          <EditText
+            value={email}
+            onChangeText={(text) => {
+              validate(text);
+            }}
+            check={valid}
+            cross={!valid}
+            emailRef={emailRef}
           />
           <Text
             style={[
-              FONTS.boldFont24,
-              {
-                color: COLORS.secondary,
-                marginTop: SIZES.twenty,
-                fontWeight: "bold",
-                paddingVertical: SIZES.ten,
-              },
-            ]}
-          >
-            LOGIN
-          </Text>
-        </View>
-        <Image
-          source={IMAGES.boywithdogs}
-          style={{ width: 250, height: 250 }}
-          resizeMode="contain"
-        />
-      </Row>
-
-      <View>
-        <Text
-          style={[
-            FONTS.boldFont20,
-            {
-              color: COLORS.secondary,
-              paddingVertical: SIZES.ten,
-            },
-          ]}
-        >
-          Email
-        </Text>
-        <EditText
-          value={email}
-          onChangeText={(text) => {
-            setEmail(text);
-          }}
-          check
-        />
-        <Text
-          style={[
-            FONTS.boldFont20,
-            {
-              color: COLORS.secondary,
-
-              paddingVertical: SIZES.ten,
-            },
-          ]}
-        >
-          Password
-        </Text>
-        <EditText
-          password
-          value={password}
-          onChangeText={(text) => {
-            setPassword(text);
-          }}
-        />
-        <TouchableOpacity
-          style={{ alignItems: "center" }}
-          onPress={() => {
-            navigation.navigate(SCREENS.ForgetPassword);
-          }}
-        >
-          <Text
-            style={[
-              FONTS.boldFont16,
-              {
-                color: COLORS.brownGrey,
-                paddingVertical: SIZES.ten,
-              },
-            ]}
-          >
-            Forget Password
-          </Text>
-        </TouchableOpacity>
-        <ButtonRadius
-          Color={COLORS.brownGrey}
-          label={"Login"}
-          onpress={() => {
-            navigation.navigate(SCREENS.Home);
-          }}
-        />
-        <ButtonRadius Color={COLORS.red} label={"LOGIN with Google"} />
-        <ButtonRadius
-          Color={COLORS.facebookBLue}
-          label={"LOGIN with FaceBook"}
-        />
-        <Row style={{ justifyContent: "center", marginVertical: 20 }}>
-          <Text
-            style={[
               FONTS.boldFont16,
               {
                 color: COLORS.secondary,
-                paddingVertical: SIZES.ten,
               },
             ]}
           >
-            Don't have any account?
+            Password
           </Text>
+          <EditText
+            password
+            value={password}
+            onChangeText={(text) => {
+              setPassword(text);
+            }}
+          />
           <TouchableOpacity
+            style={{ alignItems: "center" }}
             onPress={() => {
-              navigation.navigate(SCREENS.Signup);
+              navigation.navigate(SCREENS.ForgetPassword);
             }}
           >
             <Text
               style={[
                 FONTS.boldFont16,
                 {
-                  color: COLORS.primary,
-                  paddingVertical: SIZES.ten,
+                  color: COLORS.brownGrey,
+                  paddingBottom: SIZES.twenty,
                 },
               ]}
             >
-              SignUp
+              Forget Password
             </Text>
           </TouchableOpacity>
-        </Row>
+          <ButtonRadius
+            Color={COLORS.brownGrey}
+            label={"LOGIN"}
+            style={{ height: SIZES.twenty * 3.5 }}
+            onpress={() => {
+              // emailRef.current.play();
+              navigation.navigate(SCREENS.Home);
+            }}
+          />
+          <ButtonRadius
+            Color={COLORS.red}
+            label={"LOGIN with Google"}
+            style={{ height: SIZES.twenty * 3.5 }}
+          />
+          <ButtonRadius
+            Color={COLORS.facebookBLue}
+            label={"LOGIN with FaceBook"}
+            style={{ height: SIZES.twenty * 3.5 }}
+          />
+          <Row
+            style={{ justifyContent: "center", paddingVertical: SIZES.twenty }}
+          >
+            <Text
+              style={[
+                FONTS.boldFont16,
+                {
+                  color: COLORS.secondary,
+                  paddingVertical: SIZES.five,
+                },
+              ]}
+            >
+              Don't have any account?
+            </Text>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate(SCREENS.Signup);
+              }}
+            >
+              <Text
+                style={[
+                  FONTS.mediumFont16,
+                  {
+                    color: COLORS.primary,
+                    paddingVertical: SIZES.five,
+                  },
+                ]}
+              >
+                SignUp
+              </Text>
+            </TouchableOpacity>
+          </Row>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

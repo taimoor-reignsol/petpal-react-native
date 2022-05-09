@@ -33,9 +33,8 @@ export const SignUp = ({ navigation }) => {
       <View style={{ marginHorizontal: SIZES.ten * 1.5 }}>
         <Text
           style={[
-            FONTS.boldFont22,
+            FONTS.boldFont16,
             {
-              fontWeight: "bold",
               color: COLORS.black,
             },
           ]}
@@ -51,9 +50,8 @@ export const SignUp = ({ navigation }) => {
         />
         <Text
           style={[
-            FONTS.boldFont22,
+            FONTS.boldFont16,
             {
-              fontWeight: "bold",
               color: COLORS.black,
             },
           ]}
@@ -68,9 +66,8 @@ export const SignUp = ({ navigation }) => {
         />
         <Text
           style={[
-            FONTS.boldFont22,
+            FONTS.boldFont16,
             {
-              fontWeight: "bold",
               color: COLORS.black,
             },
           ]}
@@ -85,9 +82,8 @@ export const SignUp = ({ navigation }) => {
         />
         <Text
           style={[
-            FONTS.boldFont22,
+            FONTS.boldFont16,
             {
-              fontWeight: "bold",
               color: COLORS.black,
             },
           ]}
@@ -104,9 +100,8 @@ export const SignUp = ({ navigation }) => {
 
         <Text
           style={[
-            FONTS.boldFont22,
+            FONTS.boldFont16,
             {
-              fontWeight: "bold",
               color: COLORS.black,
             },
           ]}
@@ -192,18 +187,18 @@ export const SignUp = ({ navigation }) => {
 
       <Row
         style={{
-          paddingHorizontal: SIZES.twenty,
+          paddingHorizontal: SIZES.twenty * 4,
           justifyContent: "space-between",
         }}
       >
         <ButtonRadius
           Color={COLORS.primary}
-          style={{ width: 170, alignSelf: "center" }}
+          style={{ width: SIZES.twentyFive * 6, alignSelf: "center" }}
           label={"Register"}
         />
         <ButtonRadius
           Color={COLORS.secondary}
-          style={{ width: 170, alignSelf: "center" }}
+          style={{ width: SIZES.twentyFive * 6, alignSelf: "center" }}
           label={"Login"}
         />
       </Row>

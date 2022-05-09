@@ -17,6 +17,7 @@ export const ButtonRadius = ({
   return (
     <View>
       <TouchableOpacity
+        activeOpacity={0.85}
         onPress={onpress}
         style={[
           {
@@ -47,7 +48,7 @@ export const ButtonRadius = ({
 
           <Text
             style={[
-              FONTS.boldFont20,
+              FONTS.boldFont14,
               {
                 color: COLORS.white,
 
@@ -61,7 +62,7 @@ export const ButtonRadius = ({
           {arrow ? (
             <AntDesign
               name="right"
-              size={24}
+              size={SIZES.twentyFive}
               color={dark ? COLORS.white : COLORS.brownGrey}
             />
           ) : null}

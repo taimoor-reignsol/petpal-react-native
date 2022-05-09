@@ -63,6 +63,7 @@ export const IMAGES = {
   SelectHome: require("../assets/SelectHome.png"),
   UnSelectHome: require("../assets/UnSelectHome.png"),
   yellocorner: require("../assets/YellowCorner.png"),
+  girl: require("../assets/girl.png"),
 
   UnSelectNotification: require("../assets/UnSelectNotification.png"),
 

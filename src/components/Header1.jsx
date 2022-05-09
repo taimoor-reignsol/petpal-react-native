@@ -45,15 +45,15 @@ const Header1 = (props) => {
         >
           <Image
             source={IMAGES.Logo}
-            style={{ width: 100, height: 40 }}
+            style={{ width: SIZES.twenty * 5, height: SIZES.twenty * 4 }}
             resizeMode="contain"
           />
           <Image
             source={IMAGES.girlwithpet}
             style={{
               marginHorizontal: SIZES.ten,
-              width: 200,
-              height: 180,
+              width: SIZES.twenty * 10,
+              height: SIZES.twenty * 9,
               marginTop: SIZES.twenty,
             }}
             resizeMode={"contain"}

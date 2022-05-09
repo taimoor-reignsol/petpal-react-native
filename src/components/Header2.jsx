@@ -19,16 +19,7 @@ export const Header2 = (props) => {
       /> */}
       <Row style={{ alignItems: "center", justifyContent: "center" }}>
         <BackArrow style={{ position: "absolute", start: 15, zIndex: 1 }} />
-        {/* <View
-          style={{
-            alignContent: "center",
-            alignSelf: "center",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-         
-        </View> */}
+
         <Text
           style={[
             FONTS.boldFont24,

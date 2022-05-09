@@ -1,18 +1,18 @@
-import React from "react";
-import { View, Text } from "react-native";
-import BackArrow from "../../components/BackArrow";
+import React, { useState } from "react";
+import { View, Text, Button, Image, ScrollView } from "react-native";
+
+import { CircleButton } from "../../components/CircleButton";
+import { Mainheader } from "../../components/Mainheader";
+import { SearchBar } from "../../components/SearchBar";
+import { FONTS, IMAGES, COLORS, SIZES } from "../../constants";
 
 export const Home = () => {
   return (
-    <View
-      style={{
-        justifyContent: "center",
-        alignContent: "center",
-        alignItems: "center",
-        backgroundColor: "red",
-      }}
-    >
-      <Text>Home Screen</Text>
-    </View>
+    // <View style={{ flex: 1 }}>
+    <ScrollView contentContainerStyle={{ paddingBottom: 1200 }}>
+      <Mainheader />
+      <SearchBar />
+    </ScrollView>
+    // </View>
   );
 };

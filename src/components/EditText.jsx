@@ -8,6 +8,9 @@
 
 import React, { Component } from "react";
 import { FontAwesome } from "@expo/vector-icons";
+import eyeOpen from "../assets/eye.json";
+
+import eyeClose from "../assets/eyecross.json";
 import {
   StyleSheet,
   TextInput,
@@ -16,6 +19,9 @@ import {
   Text,
   View,
 } from "react-native";
+import { Entypo } from "@expo/vector-icons";
+
+import LottieView from "lottie-react-native";
 
 import { COLORS, FONTFAMILY, SIZES } from "../constants";
 
@@ -36,6 +42,8 @@ export default class MaterialTextField extends Component {
       expanded: false,
       icon: "eye",
       showText: true,
+      eye: eyeOpen,
+      // eyeSlash: require("../assets/"),
     };
   }
 
@@ -46,6 +54,7 @@ export default class MaterialTextField extends Component {
     if (this.props.onRef != null) {
       this.props.onRef(this.validate);
     }
+
     this.animation.setValue(this.state.minHeight);
   }
 
@@ -131,36 +140,102 @@ export default class MaterialTextField extends Component {
               this.props.onChangeText(text);
             }}
           />
+          {/* 
+          {this.props.password ? (
+         <TouchableOpacity
+             activeOpacity={0.6}
+             onPress={() => {
+               if (this.state.icon === "eye") {
+                   this.setState({ icon: "eye-slash", showText: false });
+              } else {
+                 this.setState({ icon: "eye", showText: true });
+               }
+             }}
+       >
+              <FontAwesome
+               name={this.props.password ? this.state.icon : "home"}
+              size={SIZES.twenty}
+             color={COLORS.primary}
+                onPress={() => {
+                 if (this.state.icon === "eye") {
+                     this.setState({ icon: "eye-slash", showText: false });
+                  } else {
+                   this.setState({ icon: "eye", showText: true });
+                 }
+               }}
+             />
+             </TouchableOpacity>
+          ) : null} */}
+
           {this.props.password ? (
             <TouchableOpacity
               activeOpacity={0.6}
               onPress={() => {
-                if (this.state.icon === "eye") {
-                  this.setState({ icon: "eye-slash", showText: false });
+                if (this.state.eye === eyeOpen) {
+                  this.setState({
+                    eye: eyeClose,
+                    showText: false,
+                  });
                 } else {
-                  this.setState({ icon: "eye", showText: true });
+                  this.setState({
+                    eye: eyeOpen,
+                    showText: true,
+                  });
                 }
               }}
             >
-              <FontAwesome
-                name={this.props.password ? this.state.icon : "home"}
-                size={SIZES.twenty}
-                color={COLORS.primary}
-                onPress={() => {
-                  if (this.state.icon === "eye") {
-                    this.setState({ icon: "eye-slash", showText: false });
-                  } else {
-                    this.setState({ icon: "eye", showText: true });
-                  }
-                }}
+              <LottieView
+                source={this.state.eye}
+                style={{ width: 30 }}
+                autoPlay
+                loop
+                // onPress={() => {
+                //   if (this.state.eye === require("../assets/eye.json")) {
+                //     this.setState({
+                //       eye: require("../assets/eye.json"),
+                //       showText: false,
+                //     });
+                //   } else {
+                //     this.setState({
+                //       eye: require("../assets/eye.json"),
+                //       showText: true,
+                //     });
+                //   }
+                // }}
               />
             </TouchableOpacity>
           ) : null}
 
+          {/* {this.props.check ? (
+            <FontAwesome name="check" size={24} color={COLORS.primary} />
+          ) : null} */}
+
           {this.props.check ? (
+            <LottieView
+              source={require("../assets/orangecheck.json")}
+              style={{ width: 40 }}
+              autoPlay={true}
+              loop={true}
+              // ref={this.props.emailref}
+            />
+          ) : null}
+          {this.props.cross ? (
+            <LottieView
+              source={require("../assets/cross.json")}
+              style={{ width: 40 }}
+              autoPlay
+              loop
+            />
+          ) : null}
+
+          {/* 
+          {this.props.valid ? (
             <FontAwesome name="check" size={24} color={COLORS.primary} />
           ) : null}
 
+          {this.props.valid == false ? (
+            <Entypo name="cross" size={24} color={COLORS.primary} />
+          ) : null} */}
           {/* <TouchableOpacity
             activeOpacity={0.6}
             disabled={this.props.password ? false : true}
