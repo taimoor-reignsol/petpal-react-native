@@ -80,8 +80,18 @@ export const SCREENS = {
   Home: "Home",
   Notification: "Notification",
   More: "More",
+  ProfileSetting: "ProfileSetting",
+  SinglePet: "SinglePet",
+  Faqs: "Faqs",
+  Rent: "Rent",
+  Rating: "Rating",
+  Calender: "Calender",
   Location: "Location",
   TermsAndConition: "TermsAndConition",
+  SelectTime: "SelectTime",
+  Helps: "Helps",
+  FavPetScreen: "FavPetScreen",
+  Order: "Order",
 };
 
 export const SIZES = {
