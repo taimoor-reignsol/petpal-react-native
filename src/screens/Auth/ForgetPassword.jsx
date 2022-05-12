@@ -1,24 +1,13 @@
 import React, { useState } from "react";
 import {
-  Platform,
   StyleSheet,
   Text,
-  View,
   Image,
   ScrollView,
   TouchableOpacity,
 } from "react-native";
 
-import { CommonActions, useNavigation } from "@react-navigation/native";
-import {
-  COLORS,
-  FONTFAMILY,
-  FONTS,
-  IMAGES,
-  SCREENS,
-  SIZES,
-  STYLES,
-} from "../../constants";
+import { COLORS, FONTS, IMAGES, SIZES } from "../../constants";
 import EditText from "../../components/EditText";
 import { ButtonRadius } from "../../components/ButtonRadius";
 
@@ -33,7 +22,7 @@ export const ForgetPassword = (navigation) => {
       />
       <Text
         style={[
-          FONTS.boldFont24,
+          FONTS.boldFont18,
           {
             color: COLORS.secondary,
             marginTop: SIZES.twenty,
@@ -46,7 +35,7 @@ export const ForgetPassword = (navigation) => {
       </Text>
       <Text
         style={[
-          FONTS.boldFont20,
+          FONTS.boldFont16,
           {
             color: COLORS.black,
             fontWeight: "bold",
@@ -56,7 +45,7 @@ export const ForgetPassword = (navigation) => {
       >
         Send OTP to:
       </Text>
-      <Text
+      {/* <Text
         style={[
           FONTS.boldFont20,
           {
@@ -67,15 +56,16 @@ export const ForgetPassword = (navigation) => {
         ]}
       >
         Email
-      </Text>
+      </Text> */}
       <EditText
+        place={"Email"}
         value={email}
         onChangeText={(text) => {
           setEmail(text);
         }}
       />
 
-      <Text
+      {/* <Text
         style={[
           FONTS.boldFont20,
           {
@@ -86,8 +76,9 @@ export const ForgetPassword = (navigation) => {
         ]}
       >
         Phone No
-      </Text>
+      </Text> */}
       <EditText
+        place={"Phone No"}
         value={phoneNo}
         onChangeText={(text) => {
           setPhoneNo(text);

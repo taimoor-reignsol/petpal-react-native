@@ -11,7 +11,7 @@ import {
 } from "react-native";
 
 import mainbg from "../assets/mainbg.png";
-import { FONTS, IMAGES, COLORS, SIZES } from "../constants";
+import { FONTS, IMAGES, COLORS, SIZES, SCREENS } from "../constants";
 import dog1 from "../assets/dog1.png";
 import dog2 from "../assets/dog2.png";
 import dog3 from "../assets/dog3.png";
@@ -56,20 +56,24 @@ const Item = ({ images }) => (
     </TouchableOpacity>
   </View>
 );
-export const Mainheader = () => {
+export const Mainheader = (props) => {
+  const { route, navigation } = props;
   const renderItem = ({ item }) => <Item images={item.image} />;
   return (
     <View style={{ flex: 1 }}>
       <View
-        style={{
-          paddingHorizontal: SIZES.fifteen,
-        }}
+        style={
+          {
+            // paddingHorizontal: SIZES.fifteen,
+          }
+        }
       >
         <Row
           style={{
             alignItems: "center",
             justifyContent: "space-between",
             paddingTop: StatusBar.currentHeight,
+            paddingHorizontal: SIZES.fifteen,
           }}
         >
           <Image
@@ -80,7 +84,12 @@ export const Mainheader = () => {
             }}
             resizeMode="contain"
           />
-          <CircleButton image={IMAGES.girl} style={{}} onpress={() => {}} />
+
+          <CircleButton
+            image={IMAGES.girl}
+            style={{}}
+            // onpress={navigation.navigate(SCREENS.ProfileSetting)}
+          />
         </Row>
 
         <Text
@@ -88,6 +97,7 @@ export const Mainheader = () => {
             FONTS.boldFont20,
             {
               color: COLORS.secondary,
+              paddingHorizontal: SIZES.fifteen,
             },
           ]}
         >
@@ -105,7 +115,7 @@ export const Mainheader = () => {
             FONTS.mediumFont14,
             {
               color: COLORS.secondary,
-
+              paddingHorizontal: SIZES.fifteen,
               paddingVertical: SIZES.ten,
             },
           ]}

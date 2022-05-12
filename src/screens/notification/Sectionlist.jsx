@@ -5,11 +5,15 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   View,
+  Image,
 } from "react-native";
 
 import { SwipeListView } from "react-native-swipe-list-view";
+import { SIZES, COLORS } from "./../../constants";
+import Images from "./../../common/Images";
+import Row from "../../components/Row";
 
-export default function SectionList() {
+export const SectionList = () => {
   const [listData, setListData] = useState(
     Array(5)
       .fill("")
@@ -49,19 +53,29 @@ export default function SectionList() {
 
   const renderItem = (data) => (
     <TouchableHighlight
-      onPress={() => console.log("You touched me")}
+      onPress={() => {}}
       style={styles.rowFront}
-      underlayColor={"#AAA"}
+      // activeOpacity={0.85}
+      activeOpacity={0.85}
+      underlayColor={COLORS.gold}
+      // underlayColor={}
     >
       <View>
-        <Text>Notification {data.item.text} </Text>
+        <Row style={{ alignItems: "center" }}>
+          <Image
+            source={Images.user}
+            style={{ width: SIZES.twenty * 3, height: SIZES.twenty * 3 }}
+            resizeMode="contain"
+          />
+          <Text>Notification {data.item.text} </Text>
+        </Row>
       </View>
     </TouchableHighlight>
   );
 
   const renderHiddenItem = (data, rowMap) => (
     <View style={styles.rowBack}>
-      <Text>Left</Text>
+      {/* <Text>Left</Text> */}
       <TouchableOpacity
         style={[styles.backRightBtn, styles.backRightBtnLeft]}
         onPress={() => closeRow(rowMap, data.item.key)}
@@ -77,7 +91,7 @@ export default function SectionList() {
     </View>
   );
 
-  const renderSectionHeader = ({ section }) => <Text>{section.title}</Text>;
+  const renderSectionHeader = ({ section }) => <Text>May 26, 2020</Text>;
 
   return (
     <View style={styles.container}>
@@ -87,7 +101,7 @@ export default function SectionList() {
         renderItem={renderItem}
         renderHiddenItem={renderHiddenItem}
         renderSectionHeader={renderSectionHeader}
-        leftOpenValue={75}
+        // leftOpenValue={75}
         rightOpenValue={-150}
         previewRowKey={"0"}
         previewOpenValue={-40}
@@ -96,28 +110,32 @@ export default function SectionList() {
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: COLORS.white,
     flex: 1,
+    margin: SIZES.fifteen,
   },
   backTextWhite: {
     color: "#FFF",
   },
   rowFront: {
-    alignItems: "center",
-    backgroundColor: "#CCC",
-    borderBottomColor: "black",
-    borderBottomWidth: 1,
+    // alignItems: "center",
+    backgroundColor: COLORS.primary,
+    borderRadius: SIZES.ten,
+    marginTop: 10,
     justifyContent: "center",
-    height: 50,
+    height: SIZES.twenty * 4,
   },
   rowBack: {
     alignItems: "center",
-    backgroundColor: "#DDD",
+    backgroundColor: COLORS.white,
     flex: 1,
+    borderRadius: SIZES.ten,
+
+    marginTop: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     paddingLeft: 15,
@@ -127,15 +145,21 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: "center",
     position: "absolute",
-    top: 0,
+    // marginTop: 10,
+    top: 4,
     width: 75,
   },
   backRightBtnLeft: {
-    backgroundColor: "blue",
+    backgroundColor: COLORS.secondary,
+    borderRadius: SIZES.ten,
+    justifyContent: "center",
     right: 75,
+    // marginTop: 10,
   },
   backRightBtnRight: {
-    backgroundColor: "red",
+    backgroundColor: COLORS.red,
+    // marginTop: 10,
+    borderRadius: SIZES.ten,
     right: 0,
   },
 });

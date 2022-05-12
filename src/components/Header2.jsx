@@ -3,7 +3,7 @@ import { Image, Text, View, ImageBackground } from "react-native";
 import { IMAGES, FONTS, COLORS, SIZES } from "./../constants/theme";
 import BackArrow from "./BackArrow";
 import Row from "./Row";
-export const Header2 = (props) => {
+export const Header2 = ({ title, style }) => {
   return (
     <View style={{}}>
       {/* <ImageBackground
@@ -25,16 +25,15 @@ export const Header2 = (props) => {
             FONTS.boldFont24,
             {
               color: COLORS.white,
-
               justifyContent: "center",
-
               flex: 1,
               textAlign: "center",
               textTransform: "capitalize",
             },
+            style,
           ]}
         >
-          {props.title}
+          {title}
         </Text>
       </Row>
     </View>

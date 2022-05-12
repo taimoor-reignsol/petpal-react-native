@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, StatusBar } from "react-native";
 import { color } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
 import BackArrow from "../../components/BackArrow";
@@ -7,12 +7,14 @@ import { ButtonRadius } from "../../components/ButtonRadius";
 import Row from "../../components/Row";
 import { IMAGES, COLORS, FONTS, SCREENS } from "../../constants";
 import { SIZES } from "./../../constants/theme";
+import Images from "./../../common/Images";
+import { Header2 } from "./../../components/Header2";
 
 export const More = ({ navigation }) => {
   const [select, setSelect] = useState("");
   return (
     <View style={{ flex: 1 }}>
-      <Row>
+      {/* <Row>
         <Image
           source={IMAGES.yellocorner}
           style={{
@@ -38,7 +40,23 @@ export const More = ({ navigation }) => {
         >
           Setting
         </Text>
-      </Row>
+      </Row> */}
+
+      <View style={{ height: SIZES.ten * 20 }}>
+        <Image
+          source={IMAGES.yellocorner}
+          style={{
+            alignSelf: "flex-end",
+            width: SIZES.twentyFive * 15,
+            height: "100%",
+
+            position: "absolute",
+          }}
+          resizeMode="contain"
+        />
+        <View style={{ height: StatusBar.currentHeight * 2.5 }} />
+        <Header2 title={"Settings"} style={{ color: COLORS.black }} />
+      </View>
       <View
         style={{
           paddingHorizontal: SIZES.twenty,
@@ -55,6 +73,7 @@ export const More = ({ navigation }) => {
           }
           onpress={() => {
             setSelect("Profile");
+            navigation.navigate(SCREENS.ProfileSetting);
           }}
         />
 
@@ -84,6 +103,7 @@ export const More = ({ navigation }) => {
           }
           onpress={() => {
             setSelect("Favourite");
+            navigation.navigate(SCREENS.FavPetScreen);
           }}
         />
         <ButtonRadius
@@ -100,6 +120,7 @@ export const More = ({ navigation }) => {
           }
           onpress={() => {
             setSelect("Order History");
+            navigation.navigate(SCREENS.Order);
           }}
         />
         <ButtonRadius
@@ -110,6 +131,7 @@ export const More = ({ navigation }) => {
           style={select === "Help" ? styles.darkBGColor : styles.LightBGColor}
           onpress={() => {
             setSelect("Help");
+            navigation.navigate(SCREENS.Helps);
           }}
         />
 
@@ -121,6 +143,8 @@ export const More = ({ navigation }) => {
           style={select === "FAQ's" ? styles.darkBGColor : styles.LightBGColor}
           onpress={() => {
             setSelect("FAQ's");
+
+            navigation.navigate(SCREENS.Faqs);
           }}
         />
         <ButtonRadius
@@ -172,6 +196,15 @@ const styles = StyleSheet.create({
     color: COLORS.white,
   },
   darkBGColor: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
     backgroundColor: COLORS.secondary,
     alignItems: null,
   },
@@ -179,6 +212,15 @@ const styles = StyleSheet.create({
     color: COLORS.brownGrey,
   },
   LightBGColor: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
     alignItems: null,
     backgroundColor: COLORS.white,
   },

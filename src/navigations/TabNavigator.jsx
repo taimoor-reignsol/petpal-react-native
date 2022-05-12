@@ -7,8 +7,9 @@ import { Home } from "../screens/home/Home";
 import { Notification } from "../screens/notification/Notification";
 import { More } from "../screens/more/More";
 import { Location } from "../screens/location/Location";
+import Images from "../common/Images";
 
-import { IMAGES } from "./../constants/theme";
+import { IMAGES, SIZES } from "./../constants/theme";
 import { Switch } from "react-native-web";
 
 export const TabNavigator = () => {
@@ -18,14 +19,18 @@ export const TabNavigator = () => {
     return (
       <Image
         source={icon}
-        style={{ width: 40, height: 40 }}
+        style={{ width: SIZES.twenty * 2, height: SIZES.twenty * 2 }}
         resizeMode="contain"
       />
     );
   };
   return (
     <Tab.Navigator
-      screenOptions={{ headerShown: false, tabBarStyle: { height: 70 } }}
+      screenOptions={{
+        tabBarShowLabel: false,
+        headerShown: false,
+        tabBarStyle: { height: SIZES.twentyFive * 2 },
+      }}
     >
       <Tab.Screen
         name={SCREENS.Home}
@@ -34,7 +39,9 @@ export const TabNavigator = () => {
           tabBarIcon: ({ color, focused }) => (
             <CustomIcon
               isFocused={focused}
-              icon={focused ? IMAGES.SelectHome : IMAGES.UnSelectHome}
+              icon={
+                focused ? Images.BottomBarRabbitColor : Images.bottomBarRabbit
+              }
             />
           ),
         }}
@@ -46,7 +53,11 @@ export const TabNavigator = () => {
           tabBarIcon: ({ color, focused }) => (
             <CustomIcon
               isFocused={focused}
-              icon={focused ? IMAGES.SelectLocation : IMAGES.UnSelectLocation}
+              icon={
+                !focused
+                  ? Images.BottomBarLocationColor
+                  : Images.bottomBarLocation
+              }
             />
           ),
         }}
@@ -58,7 +69,11 @@ export const TabNavigator = () => {
           tabBarIcon: ({ color, focused }) => (
             <CustomIcon
               isFocused={focused}
-              icon={focused ? IMAGES.SelectHome : IMAGES.UnSelectNotification}
+              icon={
+                !focused
+                  ? Images.bottomBarSelectionColor
+                  : Images.bottomBarSelection
+              }
             />
           ),
         }}
@@ -70,7 +85,7 @@ export const TabNavigator = () => {
           tabBarIcon: ({ color, focused }) => (
             <CustomIcon
               isFocused={focused}
-              icon={focused ? IMAGES.SelectHome : IMAGES.UnSelectMore}
+              icon={!focused ? Images.bottomBarMoreColor : Images.bottomBarMore}
             />
           ),
         }}

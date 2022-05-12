@@ -1,16 +1,14 @@
-import React, { useState, useRef, createRef } from "react";
+import React, { useState, createRef } from "react";
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
   Image,
   ScrollView,
+  StatusBar,
   TouchableOpacity,
 } from "react-native";
-
-import { COLORS, FONTS, IMAGES, SCREENS, SIZES, STYLES } from "../../constants";
-
+import { COLORS, FONTS, IMAGES, SCREENS, SIZES } from "../../constants";
 import Row from "../../components/Row";
 import EditText from "../../components/EditText";
 import { ButtonRadius } from "./../../components/ButtonRadius";
@@ -35,6 +33,12 @@ export const Login = ({ navigation }) => {
 
   return (
     <ScrollView contentContainerStyle={{ paddingHorizontal: SIZES.twenty }}>
+      <View
+        style={{
+          height: StatusBar.currentHeight * 1.5,
+        }}
+      />
+      {/* <StatusBar style="dark" backgroundColor={COLORS.primary} /> */}
       <View
       // style={[STYLES.container, { paddingHorizontal: SIZES.fifteen }]}
       >
@@ -72,7 +76,7 @@ export const Login = ({ navigation }) => {
         </Row>
 
         <View>
-          <Text
+          {/* <Text
             style={[
               FONTS.boldFont16,
               {
@@ -81,8 +85,9 @@ export const Login = ({ navigation }) => {
             ]}
           >
             Email
-          </Text>
+          </Text> */}
           <EditText
+            place={"Email"}
             value={email}
             onChangeText={(text) => {
               validate(text);
@@ -91,7 +96,7 @@ export const Login = ({ navigation }) => {
             cross={!valid}
             emailRef={emailRef}
           />
-          <Text
+          {/* <Text
             style={[
               FONTS.boldFont16,
               {
@@ -100,8 +105,9 @@ export const Login = ({ navigation }) => {
             ]}
           >
             Password
-          </Text>
+          </Text> */}
           <EditText
+            place={"Password"}
             password
             value={password}
             onChangeText={(text) => {

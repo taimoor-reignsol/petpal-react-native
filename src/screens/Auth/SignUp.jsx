@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
-  Image,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-
-// import CheckBox from "react-native-check-box";
-
-import { COLORS, FONTS, IMAGES, SIZES, STYLES } from "../../constants";
-
+import { COLORS, SIZES } from "../../constants";
 import Row from "../../components/Row";
 import EditText from "../../components/EditText";
 import Header1 from "./../../components/Header1";
@@ -31,7 +25,7 @@ export const SignUp = ({ navigation }) => {
     <ScrollView>
       <Header1 />
       <View style={{ marginHorizontal: SIZES.ten * 1.5 }}>
-        <Text
+        {/* <Text
           style={[
             FONTS.boldFont16,
             {
@@ -40,15 +34,16 @@ export const SignUp = ({ navigation }) => {
           ]}
         >
           User Name
-        </Text>
+        </Text> */}
         <EditText
-          value={userName}
+          place={"User name"}
+          // value={userName}
           onChangeText={(text) => {
             setuserName(text);
           }}
           check
         />
-        <Text
+        {/* <Text
           style={[
             FONTS.boldFont16,
             {
@@ -57,14 +52,15 @@ export const SignUp = ({ navigation }) => {
           ]}
         >
           Email
-        </Text>
+        </Text> */}
         <EditText
+          place={"Email"}
           value={email}
           onChangeText={(text) => {
             setEmail(text);
           }}
         />
-        <Text
+        {/* <Text
           style={[
             FONTS.boldFont16,
             {
@@ -73,14 +69,15 @@ export const SignUp = ({ navigation }) => {
           ]}
         >
           State
-        </Text>
+        </Text> */}
         <EditText
+          place={"State"}
           value={state}
           onChangeText={(text) => {
             setState(text);
           }}
         />
-        <Text
+        {/* <Text
           style={[
             FONTS.boldFont16,
             {
@@ -89,8 +86,9 @@ export const SignUp = ({ navigation }) => {
           ]}
         >
           Password
-        </Text>
+        </Text> */}
         <EditText
+          place={"Password"}
           password
           value={password}
           onChangeText={(text) => {
@@ -98,7 +96,7 @@ export const SignUp = ({ navigation }) => {
           }}
         />
 
-        <Text
+        {/* <Text
           style={[
             FONTS.boldFont16,
             {
@@ -107,8 +105,9 @@ export const SignUp = ({ navigation }) => {
           ]}
         >
           confirm Password
-        </Text>
+        </Text> */}
         <EditText
+          place={"Confirm Password"}
           password
           value={confirmPassword}
           onChangeText={(text) => {
@@ -119,7 +118,8 @@ export const SignUp = ({ navigation }) => {
       <Row
         style={{
           paddingHorizontal: SIZES.twenty,
-          justifyContent: "space-between",
+          justifyContent: "flex-start",
+
           paddingVertical: SIZES.ten / 2,
         }}
       >
@@ -134,7 +134,7 @@ export const SignUp = ({ navigation }) => {
           }}
           isChecked={readConditions}
         />
-        <Row>
+        <Row style={{ alignItems: "center", start: 5 }}>
           <Text style={{ fontSize: SIZES.ten * 1.8 }}>
             <Text>I Agree to the</Text>
             <TouchableOpacity>

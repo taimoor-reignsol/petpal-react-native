@@ -79,7 +79,7 @@ export default class MaterialTextField extends Component {
     position: "absolute",
     top: this._animatedIsFocused.interpolate({
       inputRange: [0, 1],
-      outputRange: [15, -15],
+      outputRange: [5, -18],
     }),
     fontSize: this._animatedIsFocused.interpolate({
       inputRange: [0, 1],
@@ -122,10 +122,10 @@ export default class MaterialTextField extends Component {
       >
         <Animated.View style={[this.borderColorStyle, styles.borderStyle]}>
           <Animated.Text
-            style={[this.labelStyle, { marginLeft: SIZES.five - 0.5 }]}
+            style={[this.labelStyle, { marginLeft: SIZES.five - 1.3 }]}
             numberOfLines={1}
           >
-            {this.props.placeholder}
+            {this.props.place}
           </Animated.Text>
           <TextInput
             {...this.props}

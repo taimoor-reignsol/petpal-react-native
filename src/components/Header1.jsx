@@ -15,7 +15,7 @@ const Header1 = (props) => {
             style={{
               position: "absolute",
               width: SIZES.twentyFive * 15,
-              height: SIZES.twentyFive * 10,
+              height: SIZES.twentyFive * 8.8,
             }}
             resizeMode="contain"
           ></Image>
