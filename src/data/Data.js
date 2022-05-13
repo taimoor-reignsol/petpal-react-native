@@ -96,21 +96,16 @@ export const SETTINGS = [
   },
   {
     key: "2",
-    name: "General Settings",
-    image: Images.iconGeneralSettings,
-  },
-  {
-    key: "3",
     name: "Payment Settings",
     image: Images.iconPaymentSettings,
   },
   {
-    key: "4",
+    key: "3",
     name: "Notifications",
     image: Images.iconNotifications,
   },
   {
-    key: "5",
+    key: "4",
     name: "Updates",
     image: Images.iconUpdates,
   },

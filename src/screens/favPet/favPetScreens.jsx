@@ -32,7 +32,7 @@ export const favPetScreens = (props) => {
         <View style={{ height: StatusBar.currentHeight * 2.5 }} />
         <Header2 title={"Favourite Pets"} style={FONTS.boldFont18} />
       </View>
-      <View style={{ top: -SIZES.twenty * 10 }}>
+      <View style={{ marginTop: -SIZES.twenty * 13 }}>
         <Pets data={ALL_PETS} {...props} />
       </View>
     </SafeAreaView>
