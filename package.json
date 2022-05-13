@@ -25,6 +25,8 @@
     "react-native": "0.64.3",
     "react-native-calendars": "^1.1284.0",
     "react-native-check-box": "^2.1.7",
+    "react-native-dropdown-picker": "^5.4.2",
+    "react-native-material-dropdown": "^0.11.1",
     "react-native-neat-date-picker": "^1.2.2",
     "react-native-permissions": "^3.3.1",
     "react-native-ratings": "^8.1.0",

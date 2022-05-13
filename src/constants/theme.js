@@ -64,6 +64,9 @@ export const IMAGES = {
   UnSelectHome: require("../assets/UnSelectHome.png"),
   yellocorner: require("../assets/YellowCorner.png"),
   girl: require("../assets/girl.png"),
+  CrCrad: require("../assets/CrCard.png"),
+  VisaIcon: require("../assets/visa.png"),
+  PayPalIcon: require("../assets/paypal.png"),
 
   UnSelectNotification: require("../assets/UnSelectNotification.png"),
 
@@ -92,6 +95,10 @@ export const SCREENS = {
   Helps: "Helps",
   FavPetScreen: "FavPetScreen",
   Order: "Order",
+  PaymentScreen: "Payment",
+  ChatHistory: "ChatHistory",
+  ChatScreen: "ChatScreen",
+  EditProfile: "EditProfile",
 };
 
 export const SIZES = {

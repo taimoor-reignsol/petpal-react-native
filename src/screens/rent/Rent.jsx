@@ -188,7 +188,13 @@ export const Rent = (props) => {
             marginHorizontal: SIZES.fifteen,
             marginTop: SIZES.fifteen,
           }}
-          onpress={() => navigation.navigate(SCREENS.Home, { item })}
+          onpress={() =>
+            navigation.navigate(SCREENS.PaymentScreen, {
+              item,
+              selectedDate,
+              SelectTime,
+            })
+          }
         />
       </ScrollView>
     </SafeAreaView>

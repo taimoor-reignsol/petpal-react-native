@@ -89,6 +89,7 @@ export const More = ({ navigation }) => {
           }
           onpress={() => {
             setSelect("Chat History");
+            navigation.navigate(SCREENS.ChatHistory);
           }}
         />
         <ButtonRadius

@@ -13,7 +13,8 @@ import { ALL_PETS } from "../../data/Data";
 import Images from "./../../common/Images";
 import { SIZES, FONTS, COLORS } from "./../../constants";
 
-export const favPetScreens = () => {
+export const favPetScreens = (props) => {
+  const { navigation } = props;
   return (
     <SafeAreaView>
       <View style={{ height: SIZES.ten * 40, alignContent: "flex-end" }}>
@@ -32,7 +33,7 @@ export const favPetScreens = () => {
         <Header2 title={"Favourite Pets"} style={FONTS.boldFont18} />
       </View>
       <View style={{ top: -SIZES.twenty * 10 }}>
-        <Pets data={ALL_PETS} />
+        <Pets data={ALL_PETS} {...props} />
       </View>
     </SafeAreaView>
   );

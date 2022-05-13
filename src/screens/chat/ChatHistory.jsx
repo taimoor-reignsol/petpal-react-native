@@ -7,16 +7,17 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
+import { ChatList } from "../../components/ChatList";
 import { Header2 } from "../../components/Header2";
 import { Pets } from "../../components/Pets";
-import { ALL_PETS } from "../../data/Data";
+import { ALL_PETS, CHATS } from "../../data/Data";
 import Images from "./../../common/Images";
 import { SIZES, FONTS, COLORS } from "./../../constants";
 
-export const OrderScreen = (props) => {
+export const ChatHistory = (props) => {
   const { navigation } = props;
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={{ height: SIZES.ten * 40, alignContent: "flex-end" }}>
         <Image
           source={Images.topWave}
@@ -30,10 +31,10 @@ export const OrderScreen = (props) => {
           resizeMode="stretch"
         />
         <View style={{ height: StatusBar.currentHeight * 2.5 }} />
-        <Header2 title={"Order"} />
+        <Header2 title={"Chat History"} style={FONTS.boldFont18} />
       </View>
-      <View style={{ top: -SIZES.twenty * 10 }}>
-        <Pets data={ALL_PETS} {...props} />
+      <View style={{ flex: 1, marginTop: -SIZES.twenty * 10 }}>
+        <ChatList chatdata={CHATS} {...props} />
       </View>
     </SafeAreaView>
   );

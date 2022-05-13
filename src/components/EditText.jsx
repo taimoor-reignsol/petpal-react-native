@@ -122,7 +122,11 @@ export default class MaterialTextField extends Component {
       >
         <Animated.View style={[this.borderColorStyle, styles.borderStyle]}>
           <Animated.Text
-            style={[this.labelStyle, { marginLeft: SIZES.five - 1.3 }]}
+            style={[
+              this.labelStyle,
+              { marginLeft: SIZES.five - 1.3 },
+              this.props.labelStyle,
+            ]}
             numberOfLines={1}
           >
             {this.props.place}
@@ -130,7 +134,7 @@ export default class MaterialTextField extends Component {
           <TextInput
             {...this.props}
             ref={(ref) => (this.textInput = ref)}
-            style={[styles.txtInputStyle]}
+            style={[styles.txtInputStyle, this.props.style]}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             value={this.props.value}
@@ -290,6 +294,7 @@ const styles = StyleSheet.create({
   txtInputStyle: {
     color: COLORS.black,
     alignSelf: "stretch",
+
     flex: 1,
     fontSize: SIZES.h16,
   },

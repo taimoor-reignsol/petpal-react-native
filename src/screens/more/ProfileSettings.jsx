@@ -7,11 +7,11 @@ import {
   FlatList,
   StyleSheet,
 } from "react-native";
-import { SIZES, IMAGES, COLORS } from "./../../constants/theme";
+import { SIZES, IMAGES, COLORS, SCREENS } from "./../../constants/theme";
 import { Header2 } from "./../../components/Header2";
 import { SETTINGS } from "../../data/Data";
 import { ButtonRadius } from "./../../components/ButtonRadius";
-export const ProfileSettings = () => {
+export const ProfileSettings = ({ navigation }) => {
   const [select, setSelect] = useState("");
 
   const renderSetting = ({ item }) => {
@@ -27,6 +27,7 @@ export const ProfileSettings = () => {
           }
           onpress={() => {
             setSelect(item.name);
+            navigation.navigate(SCREENS.EditProfile);
           }}
         />
       </View>
