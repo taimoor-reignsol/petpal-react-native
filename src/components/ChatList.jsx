@@ -50,13 +50,15 @@ export const ChatList = (props) => {
               height: "100%",
               borderRadius: 100,
               marginRight: SIZES.ten,
+              justifyContent:"center",
+              alignItems:"center"
             }}
           >
             <Image
               source={item.user.image}
               style={{
-                width: "100%",
-                height: "100%",
+                width: "80%",
+                height: "80%",
                 borderRadius: 100,
               }}
               resizeMode={"contain"}
@@ -78,7 +80,7 @@ export const ChatList = (props) => {
               <View style={{ width: "80%" }}>
                 <Text
                   numberOfLines={1}
-                  style={[{ fontWeight: "700", fontSize: SIZES.twenty }]}
+                  style={[{  fontSize: SIZES.twenty }]}
                 >
                   {item.user.name}
                 </Text>
@@ -105,7 +107,7 @@ export const ChatList = (props) => {
                       paddingHorizontal: SIZES.ten,
                       paddingVertical: SIZES.five,
                       borderRadius: SIZES.fifteen + 2,
-                      backgroundColor: COLORS.seaGreen,
+                      backgroundColor: COLORS.gold,
                     }}
                   >
                     {item.message.count}

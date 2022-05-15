@@ -7,7 +7,8 @@ import {
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
-  Modal,
+  Modal
+  
 } from "react-native";
 import { Header2 } from "../../components/Header2";
 import { Pets } from "../../components/Pets";
@@ -18,6 +19,7 @@ import { SIZES, FONTS, COLORS, width, height } from "./../../constants";
 import EditText from "../../components/EditText";
 import { IMAGES } from "./../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
+
 
 export const PaymentScreen = (props) => {
   const { route, navigation } = props;
@@ -46,6 +48,12 @@ export const PaymentScreen = (props) => {
         <Header2 title={" Payment"} style={FONTS.boldFont18} />
       </View>
       <View style={{ top: -SIZES.twenty * 10 }}>
+      
+
+
+{/* add Card Here */}
+
+
         <View
           style={{
             backgroundColor: COLORS.white,
@@ -91,173 +99,8 @@ export const PaymentScreen = (props) => {
             </Text>
           </Row>
         </View>
-        <View
-          style={{
-            backgroundColor: COLORS.white,
-            marginHorizontal: SIZES.twenty,
-            justifyContent: "center",
-            paddingHorizontal: SIZES.fifteen,
-            marginTop: SIZES.ten,
-            borderWidth: 0.5,
-            borderRadius: SIZES.ten,
-          }}
-        >
-          <Text style={[FONTS.boldFont16, { marginTop: SIZES.ten }]}>
-            Payment Method
-          </Text>
-          <Row
-            style={{
-              height: height * 0.15,
-              justifyContent: "space-between",
-              marginTop: SIZES.ten,
-              paddingHorizontal: SIZES.fifteen,
-            }}
-          >
-            <TouchableOpacity
-              activeOpacity={0.7}
-              style={{
-                width: width * 0.2,
-                height: height * 0.12,
-                marginRight: width * 0.05,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              onPress={() => {
-                select === "Card" ? setSelect(null) : setSelect("Card");
-              }}
-            >
-              <Image
-                source={IMAGES.CrCrad}
-                style={{ width: "100%", height: "100%" }}
-                resizeMode={"contain"}
-              />
-
-              <Ionicons
-                name={select === "Card" ? "checkmark-circle-sharp" : null}
-                size={SIZES.twentyFive}
-                color={COLORS.secondary}
-                style={{ position: "absolute", top: 0, right: 0 }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.7}
-              style={{
-                width: width * 0.2,
-                height: height * 0.12,
-                marginRight: width * 0.05,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              onPress={() => {
-                select === "Visa" ? setSelect(null) : setSelect("Visa");
-              }}
-            >
-              <Image
-                source={IMAGES.VisaIcon}
-                style={{ width: "100%", height: "100%" }}
-                resizeMode={"contain"}
-              />
-              <Ionicons
-                name={select === "Visa" ? "checkmark-circle-sharp" : null}
-                size={SIZES.twentyFive}
-                color={COLORS.secondary}
-                style={{ position: "absolute", top: 0, right: 0 }}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.7}
-              style={{
-                width: width * 0.2,
-                height: height * 0.12,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-              onPress={() => {
-                select === "PayPal" ? setSelect(null) : setSelect("PayPal");
-              }}
-            >
-              <Image
-                source={IMAGES.PayPalIcon}
-                style={{ width: "100%", height: "100%" }}
-                resizeMode={"contain"}
-              />
-
-              <Ionicons
-                name={select === "PayPal" ? "checkmark-circle-sharp" : null}
-                size={SIZES.twentyFive}
-                color={COLORS.secondary}
-                style={{ position: "absolute", top: 0, right: 0 }}
-              />
-            </TouchableOpacity>
-          </Row>
-        </View>
-
-        <View
-          style={{
-            backgroundColor: COLORS.white,
-            justifyContent: "center",
-            paddingHorizontal: SIZES.ten,
-            marginTop: SIZES.twenty,
-          }}
-        >
-          <Text style={[FONTS.boldFont16, { marginVertical: SIZES.ten }]}>
-            Payment Details
-          </Text>
-
-          <EditText
-            labelStyle={{ color: COLORS.brownGrey, fontSize: SIZES.fifteen }}
-            place={"Card Holder Name"}
-            value={cardHolderName}
-            onChangeText={(text) => {
-              setcardHolderName(text);
-            }}
-          />
-          <EditText
-            labelStyle={{
-              color: COLORS.brownGrey,
-              fontSize: SIZES.fifteen,
-            }}
-            place={"Card No"}
-            value={cardNo}
-            onChangeText={(text) => {
-              setCardNo(text);
-            }}
-          />
-          <Row
-            style={{
-              flex: 1,
-              justifyContent: "space-between",
-              paddingHorizontal: SIZES.ten,
-            }}
-          >
-            <View style={{ width: "45%" }}>
-              <EditText
-                labelStyle={{
-                  color: COLORS.brownGrey,
-                  fontSize: SIZES.fifteen,
-                }}
-                place={"Exp Date"}
-                value={cardNo}
-                onChangeText={(text) => {
-                  setExpireDate(text);
-                }}
-              />
-            </View>
-            <View style={{ width: "45%" }}>
-              <EditText
-                labelStyle={{
-                  color: COLORS.brownGrey,
-                  fontSize: SIZES.fifteen,
-                }}
-                place={" CVV"}
-                value={cardNo}
-                onChangeText={(text) => {
-                  setCVV(text);
-                }}
-              />
-            </View>
-          </Row>
-        </View>
+   
+       
         <View
           style={{
             backgroundColor: COLORS.darkblue,
@@ -265,6 +108,7 @@ export const PaymentScreen = (props) => {
             justifyContent: "center",
             paddingHorizontal: SIZES.ten,
             borderWidth: 0.5,
+            marginTop:SIZES.twenty,
             borderRadius: SIZES.ten,
           }}
         >
@@ -385,6 +229,8 @@ export const PaymentScreen = (props) => {
           </TouchableOpacity>
         </View>
       </View>
+      
+     
       <Modal visible={ConfirmMsg} transparent={true}>
         <View
           style={{
@@ -448,7 +294,7 @@ export const PaymentScreen = (props) => {
             </TouchableOpacity>
           </View>
         </View>
-      </Modal>
+      </Modal> 
     </ScrollView>
   );
 };

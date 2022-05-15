@@ -66,7 +66,6 @@ export const Rent = (props) => {
               source={item.image}
               style={{
                 width: "100%",
-
                 height: "100%",
               }}
               resizeMode="contain"

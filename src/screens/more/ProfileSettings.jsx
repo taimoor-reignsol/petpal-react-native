@@ -27,7 +27,9 @@ export const ProfileSettings = ({ navigation }) => {
           }
           onpress={() => {
             setSelect(item.name);
-            navigation.navigate(SCREENS.EditProfile);
+            {item.name==="Profile Settings"?navigation.navigate(SCREENS.EditProfile):
+            item.name==="Payment Settings"?navigation.navigate(SCREENS.SelectPayment):null}
+            
           }}
         />
       </View>

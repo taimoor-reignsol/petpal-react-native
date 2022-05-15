@@ -99,6 +99,8 @@ export const SCREENS = {
   ChatHistory: "ChatHistory",
   ChatScreen: "ChatScreen",
   EditProfile: "EditProfile",
+  AddCard:"AddCard",
+  SelectPayment:"SelectPayment"
 };
 
 export const SIZES = {

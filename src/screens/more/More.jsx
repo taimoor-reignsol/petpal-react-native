@@ -14,34 +14,7 @@ export const More = ({ navigation }) => {
   const [select, setSelect] = useState("");
   return (
     <View style={{ flex: 1 }}>
-      {/* <Row>
-        <Image
-          source={IMAGES.yellocorner}
-          style={{
-            width: "100%",
-            height: 150,
-            marginRight: 100,
-
-            position: "absolute",
-          }}
-          resizeMode="contain"
-        />
-        <BackArrow style={{ marginTop: SIZES.twenty * 5, marginLeft: 20 }} />
-        <Text
-          style={[
-            FONTS.boldFont24,
-            {
-              color: COLORS.black,
-              marginTop: SIZES.twenty * 5,
-              marginLeft: SIZES.twentyFive * 5,
-              paddingVertical: SIZES.ten,
-            },
-          ]}
-        >
-          Setting
-        </Text>
-      </Row> */}
-
+      
       <View style={{ height: SIZES.ten * 20 }}>
         <Image
           source={IMAGES.yellocorner}

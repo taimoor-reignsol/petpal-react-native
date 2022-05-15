@@ -61,7 +61,7 @@ export const EditProfile = (props) => {
           resizeMode="stretch"
         />
         <View style={{ height: StatusBar.currentHeight * 2.5 }} />
-        <Header2 title={"Favourite Pets"} style={FONTS.boldFont18} />
+        <Header2 title={"Edit profile"} style={FONTS.boldFont18} />
       </View>
 
       <View style={{ marginTop: -SIZES.twenty * 10 }}>
@@ -96,7 +96,7 @@ export const EditProfile = (props) => {
                 name="camera"
                 size={SIZES.twenty * 2}
                 color={COLORS.primary}
-                style={{ position: "absolute", top: 0, right: 0 }}
+                style={{ position: "absolute", bottom:0, right: 1 }}
               />
             </TouchableOpacity>
           </View>

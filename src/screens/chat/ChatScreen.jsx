@@ -102,11 +102,11 @@ export const ChatScreen = (props) => {
       </ScrollView>
       <View
         style={{
-          marginHorizontal: SIZES.ten,
-          //   backgroundColor: "green",
+          // marginHorizontal: SIZES.ten,
           justifyContent: "space-between",
           alignItems: "center",
-          borderRadius: SIZES.ten,
+          borderRadius: SIZES.fifteen,
+          marginBottom:5,
           flexDirection: "row",
           bottom: 5,
           shadowColor: "#000",
@@ -119,7 +119,7 @@ export const ChatScreen = (props) => {
 
           elevation: 4,
 
-          height: height * 0.06,
+          height: height * 0.09,
         }}
       >
         <TextInput

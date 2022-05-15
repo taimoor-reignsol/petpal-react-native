@@ -24,8 +24,10 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-native": "0.64.3",
+    "react-native-animated-modal": "^1.1.0",
     "react-native-calendars": "^1.1284.0",
     "react-native-check-box": "^2.1.7",
+    "react-native-credit-card-input": "^0.4.1",
     "react-native-dropdown-picker": "^5.4.2",
     "react-native-material-dropdown": "^0.11.1",
     "react-native-neat-date-picker": "^1.2.2",
@@ -34,6 +36,7 @@
     "react-native-reanimated": "^2.8.0",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.2",
+    "react-native-snap-carousel": "^3.9.1",
     "react-native-star-rating": "^1.1.0",
     "react-native-swipe-list-view": "^3.2.9",
     "react-native-web": "0.17.1"
