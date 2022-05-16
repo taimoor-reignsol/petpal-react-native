@@ -61,6 +61,7 @@ export const AddPet = (props) => {
           marginTop: SIZES.fifteen,
           borderRadius: SIZES.fifteen,
           flexGrow: 1,
+          marginVertical: SIZES.ten,
           paddingHorizontal: SIZES.ten,
         }}
       >
@@ -77,9 +78,11 @@ export const AddPet = (props) => {
         <MyTextInput placeholder={"bread"} />
         <Row
           style={{
+            alignItems: "center",
+
             marginVertical: SIZES.five,
             justifyContent: "center",
-            // backgroundColor: "red",
+
             alignItems: "center",
             shadowColor: "#000",
             shadowOffset: {
@@ -97,9 +100,7 @@ export const AddPet = (props) => {
             style={[
               {
                 width: "90%",
-
                 paddingHorizontal: SIZES.fifteen,
-
                 paddingVertical: SIZES.fifteen,
               },
             ]}
@@ -109,9 +110,7 @@ export const AddPet = (props) => {
             <Feather name="camera" size={24} color="black" />
           </TouchableOpacity>
         </Row>
-        {image && (
-          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
-        )}
+        {image}
       </ScrollView>
     </SafeAreaView>
   );

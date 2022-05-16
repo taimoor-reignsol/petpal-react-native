@@ -46,6 +46,7 @@ export const AddCard = (props) => {
           flexGrow: 1,
           paddingBottom: 100,
           marginTop: SIZES.twenty,
+          paddingHorizontal: SIZES.twenty,
         }}
       >
         <CreditCardInput
@@ -64,7 +65,7 @@ export const AddCard = (props) => {
           style={{
             marginTop: SIZES.twentyFive * 2,
             backgroundColor: COLORS.secondary,
-            marginHorizontal: SIZES.twentyFive,
+
             paddingVertical: SIZES.fifteen,
             borderRadius: SIZES.fifteen,
             alignItems: "center",

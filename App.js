@@ -96,6 +96,7 @@ function App() {
         <Stack.Screen name={SCREENS.AddCard} component={AddCard} />
         <Stack.Screen name={SCREENS.MyProfile} component={MyProfile} />
         <Stack.Screen name={SCREENS.AddPets} component={AddPet} />
+        <Stack.Screen name={SCREENS.SelectPayment} component={SelectPayment} />
       </Stack.Navigator>
     </NavigationContainer>
   );

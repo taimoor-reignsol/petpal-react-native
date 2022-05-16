@@ -75,11 +75,12 @@ export const MyProfile = (props) => {
         style={{
           backgroundColor: COLORS.white,
           marginHorizontal: SIZES.fifteen,
+          padding: SIZES.fifteen,
           borderRadius: SIZES.fifteen,
         }}
       >
         <Text style={FONTS.boldFont18}>Info</Text>
-        <Text>
+        <Text style={[FONTS.mediumFont20, { color: COLORS.brownGrey }]}>
           Lorem Ipsum dicolora amit set consecular. Lorem Ipsum dicolora amit
           set consecular, Lorem Ipsum dicolora amit set consecular..
         </Text>
