@@ -12,14 +12,34 @@ import {
   ScrollView,
 } from "react-native";
 import { Header2 } from "../../components/Header2";
+import { Feather } from "@expo/vector-icons";
 import { MyTextInput } from "../../components/MyTextInput";
 
 import Images from "./../../common/Images";
+import * as ImagePicker from "expo-image-picker";
 
 import { SIZES, FONTS, COLORS, IMAGES, width, height } from "./../../constants";
+import Row from "./../../components/Row";
 
 export const AddPet = (props) => {
+  const [image, setImage] = useState(null);
   const { navigation } = props;
+
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
   return (
     <SafeAreaView>
       <Image
@@ -40,6 +60,7 @@ export const AddPet = (props) => {
           marginHorizontal: SIZES.fifteen,
           marginTop: SIZES.fifteen,
           borderRadius: SIZES.fifteen,
+          flexGrow: 1,
           paddingHorizontal: SIZES.ten,
         }}
       >
@@ -54,6 +75,43 @@ export const AddPet = (props) => {
         <MyTextInput placeholder={"Personal Settings"} />
         <MyTextInput placeholder={"Availability"} />
         <MyTextInput placeholder={"bread"} />
+        <Row
+          style={{
+            marginVertical: SIZES.five,
+            justifyContent: "center",
+            // backgroundColor: "red",
+            alignItems: "center",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 3,
+            },
+            shadowOpacity: 0.27,
+            shadowRadius: 4.65,
+            paddingRight: SIZES.five,
+            elevation: 6,
+            borderRadius: SIZES.fifteen,
+          }}
+        >
+          <TextInput
+            style={[
+              {
+                width: "90%",
+
+                paddingHorizontal: SIZES.fifteen,
+
+                paddingVertical: SIZES.fifteen,
+              },
+            ]}
+            placeholder={"write a caption"}
+          />
+          <TouchableOpacity onPress={pickImage}>
+            <Feather name="camera" size={24} color="black" />
+          </TouchableOpacity>
+        </Row>
+        {image && (
+          <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />
+        )}
       </ScrollView>
     </SafeAreaView>
   );
