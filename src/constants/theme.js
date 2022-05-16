@@ -73,6 +73,8 @@ export const IMAGES = {
   UnSelectMore: require("../assets/UnSelectMore.png"),
   SelectLocation: require("../assets/SelectLocation.png"),
   UnSelectLocation: require("../assets/UnSelectLocation.png"),
+  chip: require("../assets/chip.png"),
+  BackgroundCard: require("../assets/backgroundCar.jpg"),
 };
 
 /* * Screens * */
@@ -99,8 +101,10 @@ export const SCREENS = {
   ChatHistory: "ChatHistory",
   ChatScreen: "ChatScreen",
   EditProfile: "EditProfile",
-  AddCard:"AddCard",
-  SelectPayment:"SelectPayment"
+  AddCard: "AddCard",
+  SelectPayment: "SelectPayment",
+  MyProfile: "MyProfile",
+  AddPets: "AddPets",
 };
 
 export const SIZES = {

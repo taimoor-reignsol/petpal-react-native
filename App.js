@@ -33,6 +33,8 @@ import { ChatScreen } from "./src/screens/chat/ChatScreen";
 import { EditProfile } from "./src/screens/EditProfile/EditProfile";
 import { AddCard } from "./src/screens/payment/AddCard";
 import { SelectPayment } from "./src/screens/payment/SelectPayment";
+import { MyProfile } from "./src/screens/myProfile/MyProfile";
+import { AddPet } from "./src/screens/addPet/AddPet";
 
 const Stack = createNativeStackNavigator();
 
@@ -89,10 +91,11 @@ function App() {
         <Stack.Screen name={SCREENS.Order} component={OrderScreen} />
         <Stack.Screen name={SCREENS.PaymentScreen} component={PaymentScreen} />
         <Stack.Screen name={SCREENS.ChatHistory} component={ChatHistory} />
-        <Stack.Screen name={SCREENS.EditProfile} component={EditProfile} />             
+        <Stack.Screen name={SCREENS.EditProfile} component={EditProfile} />
         <Stack.Screen name={SCREENS.ChatScreen} component={ChatScreen} />
         <Stack.Screen name={SCREENS.AddCard} component={AddCard} />
-        <Stack.Screen name={SCREENS.SelectPayment} component={SelectPayment} />
+        <Stack.Screen name={SCREENS.MyProfile} component={MyProfile} />
+        <Stack.Screen name={SCREENS.AddPets} component={AddPet} />
       </Stack.Navigator>
     </NavigationContainer>
   );

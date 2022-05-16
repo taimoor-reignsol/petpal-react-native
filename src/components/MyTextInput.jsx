@@ -7,6 +7,8 @@ export const MyTextInput = (props) => {
     <View>
       <TextInput
         placeholder={props.placeholder}
+        onChangeText={props.onChangeText}
+        value={props.value}
         style={[
           props.style,
           {

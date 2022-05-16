@@ -87,8 +87,7 @@ export const Mainheader = (props) => {
 
           <CircleButton
             image={IMAGES.girl}
-            style={{}}
-            // onpress={navigation.navigate(SCREENS.ProfileSetting)}
+            onpress={() => navigation.navigate(SCREENS.MyProfile)}
           />
         </Row>
 

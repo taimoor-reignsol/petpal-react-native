@@ -7,8 +7,7 @@ import {
   SafeAreaView,
   ScrollView,
   TouchableOpacity,
-  Modal
-  
+  Modal,
 } from "react-native";
 import { Header2 } from "../../components/Header2";
 import { Pets } from "../../components/Pets";
@@ -19,7 +18,7 @@ import { SIZES, FONTS, COLORS, width, height } from "./../../constants";
 import EditText from "../../components/EditText";
 import { IMAGES } from "./../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
-
+import { Cards } from "../../components/Cards";
 
 export const PaymentScreen = (props) => {
   const { route, navigation } = props;
@@ -48,15 +47,11 @@ export const PaymentScreen = (props) => {
         <Header2 title={" Payment"} style={FONTS.boldFont18} />
       </View>
       <View style={{ top: -SIZES.twenty * 10 }}>
-      
-
-
-{/* add Card Here */}
-
+        <Cards />
 
         <View
           style={{
-            backgroundColor: COLORS.white,
+            marginTop: SIZES.fifteen,
             marginHorizontal: SIZES.twenty,
             justifyContent: "center",
             alignItems: "center",
@@ -99,8 +94,7 @@ export const PaymentScreen = (props) => {
             </Text>
           </Row>
         </View>
-   
-       
+
         <View
           style={{
             backgroundColor: COLORS.darkblue,
@@ -108,7 +102,7 @@ export const PaymentScreen = (props) => {
             justifyContent: "center",
             paddingHorizontal: SIZES.ten,
             borderWidth: 0.5,
-            marginTop:SIZES.twenty,
+            marginTop: SIZES.twenty,
             borderRadius: SIZES.ten,
           }}
         >
@@ -229,8 +223,7 @@ export const PaymentScreen = (props) => {
           </TouchableOpacity>
         </View>
       </View>
-      
-     
+
       <Modal visible={ConfirmMsg} transparent={true}>
         <View
           style={{
@@ -294,7 +287,7 @@ export const PaymentScreen = (props) => {
             </TouchableOpacity>
           </View>
         </View>
-      </Modal> 
+      </Modal>
     </ScrollView>
   );
 };

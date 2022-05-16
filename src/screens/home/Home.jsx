@@ -218,7 +218,7 @@ export const Home = (props) => {
         top: SIZES.fifteen,
       }}
     >
-      <Mainheader />
+      <Mainheader {...props} />
       <SearchBar />
       <Text
         style={{

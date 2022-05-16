@@ -695,3 +695,33 @@ export const REVIEWS = [
     },
   },
 ];
+export const CreditCardData = [
+  {
+    id: "1",
+    Name: "Taimoor",
+    CVV: "152",
+    Num: "3742-4545-5400-0126",
+    ExpDate: "05/23	",
+  },
+  {
+    id: "2",
+    Name: "Waqas",
+    CVV: "152",
+    Num: "3742-4545-5400-0126",
+    ExpDate: "05/23	",
+  },
+  {
+    id: "3",
+    Name: "Hamza",
+    CVV: "152",
+    Num: "3742-4545-5400-0126",
+    ExpDate: "05/23	",
+  },
+  {
+    id: "4",
+    Name: "Daniyal",
+    CVV: "152",
+    Num: "3742-4545-5400-0126",
+    ExpDate: "05/23	",
+  },
+];

@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   StyleSheet,
+  Modal,
   ScrollView,
 } from "react-native";
 import { Header2 } from "../../components/Header2";
@@ -15,37 +16,23 @@ import { MyTextInput } from "../../components/MyTextInput";
 
 import Images from "./../../common/Images";
 import { AntDesign } from "@expo/vector-icons";
-import { SIZES, FONTS, COLORS, IMAGES } from "./../../constants";
-import DropDownPicker from "react-native-dropdown-picker";
+import { SIZES, FONTS, COLORS, IMAGES, width, height } from "./../../constants";
+
+import { DragAndDropList } from "../../components/DragAndDropList";
 export const EditProfile = (props) => {
   const { navigation } = props;
-  const [ActivityOpen, setActivityOpen] = useState(false);
-  const [Activityvalue, setActivityValue] = useState(null);
-  const [ActivityItems, setActivityItems] = useState([
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-  ]);
+  const data = ["apple", "banama", "cat", "Dog", "apple", "frog"];
 
-  const [IdentityOpen, setIdentityOpen] = useState(false);
-  const [Identityvalue, setIdentityvalue] = useState(null);
-  const [IdentityItems, setIdentityItems] = useState([
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-  ]);
+  const [showidentity, SetShowidentity] = useState(false);
+  const [showActivity, SetShowActivity] = useState(false);
+  const [showpetBread, SetShowpetBread] = useState(false);
+  const [showColorPre, SetShowColorPre] = useState(false);
 
-  const [petBreadOpen, setpetBreadOpen] = useState(false);
-  const [petBreadvalue, setpetBreadValue] = useState(null);
-  const [petBreadItems, setpetBreadItems] = useState([
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-  ]);
+  const [identity, setIdentity] = useState("");
+  const [activity, setActivity] = useState("");
+  const [petBread, setPetBread] = useState("");
+  const [colorPre, setColorPre] = useState("");
 
-  const [ColorRefOpen, setColorRefOpen] = useState(false);
-  const [ColorRefvalue, setColorRefValue] = useState(null);
-  const [ColorRefItems, setColorRefItems] = useState([
-    { label: "Apple", value: "apple" },
-    { label: "Banana", value: "banana" },
-  ]);
   return (
     <ScrollView>
       <View style={{ height: SIZES.ten * 40, alignContent: "flex-end" }}>
@@ -96,7 +83,7 @@ export const EditProfile = (props) => {
                 name="camera"
                 size={SIZES.twenty * 2}
                 color={COLORS.primary}
-                style={{ position: "absolute", bottom:0, right: 1 }}
+                style={{ position: "absolute", bottom: 0, right: 1 }}
               />
             </TouchableOpacity>
           </View>
@@ -121,23 +108,30 @@ export const EditProfile = (props) => {
           <Text style={[FONTS.boldFont14, { marginTop: SIZES.ten }]}>
             Verify your identity
           </Text>
-          <DropDownPicker
-            style={[
-              styles.shadow,
-              {
-                borderColor: COLORS.white,
-              },
-            ]}
-            placeholder="Choose an option"
-            // zIndex={2000}
-            open={IdentityOpen}
-            value={Identityvalue}
-            items={IdentityItems}
-            setOpen={setIdentityOpen}
-            setValue={setIdentityvalue}
-            setItems={setIdentityItems}
-            dropDownStyle={{}}
+          <DragAndDropList
+            visible={showidentity}
+            close={() => SetShowidentity(false)}
+            data={data}
+            label={"Choose Identity"}
+            onPress={(val) => {
+              setIdentity(val);
+              SetShowidentity(false);
+            }}
           />
+          <TouchableOpacity
+            style={{
+              justifyContent: "center",
+              paddingVertical: SIZES.ten,
+              marginLeft: SIZES.ten,
+            }}
+            onPress={() => {
+              SetShowidentity(true);
+            }}
+          >
+            <Text style={FONTS.mediumFont16}>
+              {identity !== "" ? identity : "Choose an option"}
+            </Text>
+          </TouchableOpacity>
         </View>
         <View
           style={{
@@ -169,59 +163,99 @@ export const EditProfile = (props) => {
           <Text style={[FONTS.boldFont14, { marginTop: SIZES.ten }]}>
             Activity
           </Text>
-          <DropDownPicker
-            style={[
-              styles.shadow,
-              {
-                borderColor: COLORS.white,
-              },
-            ]}
-            placeholder="Choose an option"
-            open={ActivityOpen}
-            value={Activityvalue}
-            items={ActivityItems}
-            setOpen={setActivityOpen}
-            setValue={setActivityValue}
-            setItems={setActivityItems}
+          <DragAndDropList
+            visible={showActivity}
+            close={() => SetShowActivity(false)}
+            data={data}
+            label={"Activity"}
+            onPress={(val) => {
+              setActivity(val);
+              SetShowActivity(false);
+            }}
           />
+          <TouchableOpacity
+            style={{
+              justifyContent: "center",
+              paddingVertical: SIZES.ten,
+              marginLeft: SIZES.ten,
+            }}
+            onPress={() => {
+              SetShowActivity(true);
+            }}
+          >
+            <Text style={FONTS.mediumFont16}>
+              {activity !== "" ? activity : "Choose an option"}
+            </Text>
+          </TouchableOpacity>
           <Text style={[FONTS.boldFont14, { marginTop: SIZES.ten }]}>
             Favourite Pet Breed
           </Text>
-          <DropDownPicker
-            style={[
-              styles.shadow,
-              {
-                borderColor: COLORS.white,
-              },
-            ]}
-            placeholder="Choose an option"
-            open={petBreadOpen}
-            value={petBreadvalue}
-            items={petBreadItems}
-            setOpen={setpetBreadOpen}
-            setValue={setpetBreadValue}
-            setItems={setpetBreadItems}
+          <DragAndDropList
+            visible={showpetBread}
+            close={() => SetShowpetBread(false)}
+            data={data}
+            label={"Favourite Pet Breed"}
+            onPress={(val) => {
+              setPetBread(val);
+              SetShowpetBread(false);
+            }}
           />
+          <TouchableOpacity
+            style={{
+              justifyContent: "center",
+              paddingVertical: SIZES.ten,
+              marginLeft: SIZES.ten,
+            }}
+            onPress={() => {
+              SetShowpetBread(true);
+            }}
+          >
+            <Text style={FONTS.mediumFont16}>
+              {petBread !== "" ? petBread : "Choose an option"}
+            </Text>
+          </TouchableOpacity>
           <Text style={[FONTS.boldFont14, { marginTop: SIZES.ten }]}>
             Color Preference
           </Text>
-          <DropDownPicker
-            style={[
-              styles.shadow,
-              {
-                borderColor: COLORS.white,
-              },
-            ]}
-            placeholder="Choose an option"
-            open={ColorRefOpen}
-            value={ColorRefvalue}
-            items={ColorRefItems}
-            setOpen={setColorRefOpen}
-            setValue={setColorRefValue}
-            setItems={setColorRefItems}
+          <DragAndDropList
+            visible={showColorPre}
+            close={() => SetShowColorPre(false)}
+            data={data}
+            label={"Color Preference"}
+            onPress={(val) => {
+              setColorPre(val);
+              SetShowColorPre(false);
+            }}
           />
+          <TouchableOpacity
+            style={{
+              justifyContent: "center",
+              paddingVertical: SIZES.ten,
+              marginLeft: SIZES.ten,
+            }}
+            onPress={() => {
+              SetShowColorPre(true);
+            }}
+          >
+            <Text style={FONTS.mediumFont16}>
+              {colorPre !== "" ? colorPre : "Choose an option"}
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
+
+      {/* <Modal animationType="slide" transparent={true} visible={show}>
+        <View
+          style={{
+            height: "40%",
+            marginTop: "auto",
+            width: "90%",
+            alignSelf: "center",
+            borderRadius: SIZES.twentyFive,
+            backgroundColor: "blue",
+          }}
+        ></View>
+      </Modal> */}
     </ScrollView>
   );
 };
